@@ -32,9 +32,9 @@ HeroBoot usa estas opciones:
 ---
 
 ### Ejemplo de configuración:
-- HeroImagesPath = D:\\HeroImages
+- HeroImagesPath = D:\\\\HeroImages
 - HeroImagePattern = *_hero.jpg
-- LauncherPath = C:\\Program Files (x86)\\Steam\\steam.exe
+- LauncherPath = C:\\\\Program Files (x86)\\\\Steam\\\\steam.exe
 - OverrideFSE = true
 - PlayIntroVideo = true
 
@@ -87,16 +87,16 @@ HeroBoot is an intermediate app that transforms your Windows 11 PC boot process 
 HeroBoot uses these options:
 - `HeroImagesPath`: Folder with images
 - `HeroImagePattern`: Pattern for image search, e.g. *_hero.jpg
-- `LauncherPath`: Path to the launcher (Steam.exe, Playnite.exe, etc.), e.g. C:\\Program Files\\Steam\\steam.exe
+- `LauncherPath`: Path to the launcher with escaped inverted slash (Steam.exe, Playnite.exe, etc.), e.g. C:\\Program Files\\Steam\\steam.exe
 - `OverrideFSE`: Boolean to replace the full screen experience xbox app.
 - `PlayIntroVideo`: Boolean to play boot video
 
 ---
 
 ### Example configuration:
-- HeroImagesPath = D:\\HeroImages
+- HeroImagesPath = D:\\\\HeroImages
 - HeroImagePattern = *_hero.jpg
-- LauncherPath = C:\\Program Files (x86)\\Steam\\steam.exe
+- LauncherPath = C:\\\\Program Files (x86)\\\\Steam\\\\steam.exe
 - OverrideFSE = true
 - PlayIntroVideo = true
 
