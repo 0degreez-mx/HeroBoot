@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Management;
@@ -33,16 +34,17 @@ namespace Winhanced_Shell
         private bool playVideo = true;
         private bool useFSE = false;
 
-        private const int PerSourceMax = 5; // Máximo por origen (Steam/Xbox)
+        private const int PerSourceMax = 5;
         private static readonly TimeSpan FadeDuration = TimeSpan.FromSeconds(2);
         private static readonly TimeSpan HoldDuration = TimeSpan.FromSeconds(3);
-        private const double BlurRadius = 25; // Intensidad del desenfoque
+        private const double BlurRadius = 25;
 
 
         private List<string> _images = new();
         private int _index = 0;
         private DispatcherTimer _cycleTimer;
         private DoubleAnimation _fadeAnim;
+        private Process _curLauncher;
         public MainWindow(string[] args)
         {
             SettingsManager.Load();
@@ -147,20 +149,34 @@ namespace Winhanced_Shell
             }
             return false;
         }
-        private void RunAsAdmin(string appPath, string args)
+        private async Task RunAsAdmin(string appPath, string args)
         {
             ProcessStartInfo psi = new ProcessStartInfo
             {
                 FileName = appPath,
                 UseShellExecute = true,
-                Verb = "runas",
+                //Verb = "runas",
                 WorkingDirectory = Path.GetDirectoryName(appPath)
             };
             if (args != null)
             {
                 psi.Arguments = args;
             }
-            Process.Start(psi);
+            _curLauncher = Process.Start(psi);
+            if (_curLauncher != null)
+            {
+                /*while (_curLauncher.MainWindowHandle == IntPtr.Zero)
+                {
+                    //Thread.Sleep(100);
+                    await Task.Delay(100);
+                    _curLauncher.Refresh();
+                }*/
+                if((!useFSE && !playVideo))
+                {
+                    await Task.Delay(5000);
+                }
+                //_curLauncher.WaitForInputIdle(30000);
+            }
         }
 
         private void HideTaskbar()
@@ -181,9 +197,9 @@ namespace Winhanced_Shell
             ShowWindow(taskbarHandle, SW_SHOW);
         }
 
-        private void StartBackgroundApp(string appPath)
+        private async Task StartBackgroundApp(string appPath)
         {
-            RunAsAdmin(appPath, null);
+            await RunAsAdmin(appPath, null);
         }
 
         private async void PlayBootVideo()
@@ -209,14 +225,14 @@ namespace Winhanced_Shell
                 RunApp();
             }
             else
-            {
+            {                 
                 StartHeroCycler();
                 mediaElement.Visibility = Visibility.Collapsed;
                 loadingText.Visibility = Visibility.Visible;
             }
         }
 
-        private void RunApp()
+        private async void RunApp()
         {
             string basePath = AppDomain.CurrentDomain.BaseDirectory;
 
@@ -226,7 +242,7 @@ namespace Winhanced_Shell
             //ShowTaskbar();
             if (appPath != string.Empty && File.Exists(appPath))
             {
-                StartBackgroundApp(appPath);
+                await StartBackgroundApp(appPath);
             }
             if (!useFSE)
             {
@@ -271,9 +287,18 @@ namespace Winhanced_Shell
             BlurImage.Opacity = 0;
             BlurImage.BeginAnimation(UIElement.OpacityProperty, _fadeAnim);
         }
-
+        private int FadesCompleted = 0;
         private void OnFadeCompleted(object? sender, EventArgs e)
         {
+            
+            FadesCompleted++;
+            if (FadesCompleted == 5)
+            {
+                if (_curLauncher != null)
+                {
+                    Close();
+                }
+            }
             _cycleTimer.Stop();
             _cycleTimer = new DispatcherTimer { Interval = HoldDuration };
             _cycleTimer.Tick += (s, e) => StartFade();

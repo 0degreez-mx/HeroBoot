@@ -24,7 +24,7 @@ RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center" Verti
             </Image.Effect>
         </Image>
         <MediaElement x:Name="mediaElement" Volume="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBlock x:Name="loadingText" Visibility="Collapsed" Text="Loading..." FontSize="40" TextWrapping="Wrap" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <TextBlock x:Name="loadingText" Visibility="Collapsed" Text="HeroBoot" FontSize="40" TextWrapping="Wrap" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" />
         
     </Grid>
 </Window>
