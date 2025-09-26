@@ -21,12 +21,13 @@ HeroBoot es una aplicación intermedia que transforma el arranque de tu PC con W
 ---
 
 ### Configuración  
-HeroBoot usa estas opciones:  
-public string HeroImagesPath { get; set; }   // Carpeta con imágenes
-public string HeroImagePattern { get; set; } // Patrón, ej. *_hero.jpg
-public string LauncherPath { get; set; }     // Ruta del launcher (Steam.exe, Playnite.exe, etc.)
-public bool OverrideFSE { get; set; }        // Reemplazar la app Xbox con el launcher configurado al usar Experiencia de pantalla completa
-public bool PlayIntroVideo { get; set; }     // Reproducir video de arranque
+HeroBoot usa estas opciones:
+
+- `HeroImagesPath`: Carpeta con imágenes
+- `HeroImagePattern`: Patrón para buscar imágenes, ej. *_hero.jpg
+- `LauncherPath`: Ruta del launcher con doble diagonal invertida (Steam.exe, Playnite.exe, etc.), ej. C:\\Program Files\\Steam\\steam.exe
+- `OverrideFSE`: Boleano para reemplazar la app Xbox con el launcher configurado al usar Experiencia de pantalla completa.
+- `PlayIntroVideo`: Boleano para reproducir video de arranque
 
 ---
 
@@ -84,11 +85,11 @@ HeroBoot is an intermediate app that transforms your Windows 11 PC boot process 
 
 ### Configuration
 HeroBoot uses these options:
-public string HeroImagesPath { get; set; }   // Folder with images
-public string HeroImagePattern { get; set; } // Pattern, e.g. hero_*.jpg
-public string LauncherPath { get; set; }     // Path to the launcher (Steam.exe, Playnite.exe, etc.)
-public bool OverrideFSE { get; set; }        // Force fullscreen
-public bool PlayIntroVideo { get; set; }     // Play boot video
+- `HeroImagesPath`: Folder with images
+- `HeroImagePattern`: Pattern for image search, e.g. *_hero.jpg
+- `LauncherPath`: Path to the launcher (Steam.exe, Playnite.exe, etc.), e.g. C:\\Program Files\\Steam\\steam.exe
+- `OverrideFSE`: Boolean to replace the full screen experience xbox app.
+- `PlayIntroVideo`: Boolean to play boot video
 
 ---
 
