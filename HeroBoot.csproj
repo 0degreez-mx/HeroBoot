@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <RootNamespace>HeroBoot</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>0.0.2</Version>
+    <FileVersion>0.0.2</FileVersion>
+    <AssemblyVersion>0.0.2</AssemblyVersion>
+    <InformationalVersion>0.0.2</InformationalVersion>
+    <Configurations>Debug;Release</Configurations>
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="AddHeroBootStartup.bat" />
+    <None Remove="RemoveHeroBootStartup.bat" />
+    <None Remove="settings.json" />
+    <None Remove="startup-video.mp4" />
+    <None Remove="template.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="AddHeroBootStartup.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RemoveHeroBootStartup.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="settings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="startup-video.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Management" Version="9.0.0" />
+  </ItemGroup>
+
+</Project>
