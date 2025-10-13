@@ -23,9 +23,9 @@ HeroBoot es una aplicación intermedia que transforma el arranque de tu PC con W
 ### Configuración  
 HeroBoot usa estas opciones:
 
-- `HeroImagesPath`: Carpeta con imágenes
+- `HeroImagesPath`: Carpeta con imágenes con doble diagonal invertida, ej. C:\\\\Ruta\\\\Imagenes\\\\Hero
 - `HeroImagePattern`: Patrón para buscar imágenes, ej. *_hero.jpg
-- `LauncherPath`: Ruta del launcher con doble diagonal invertida (Steam.exe, Playnite.exe, etc.), ej. C:\\Program Files\\Steam\\steam.exe
+- `LauncherPath`: Ruta del launcher con doble diagonal invertida (Steam.exe, Playnite.exe, etc.), ej. C:\\\\Program Files\\\\Steam\\\\steam.exe
 - `OverrideFSE`: Boleano para reemplazar la app Xbox con el launcher configurado al usar Experiencia de pantalla completa.
 - `PlayIntroVideo`: Boleano para reproducir video de arranque
 
@@ -85,9 +85,9 @@ HeroBoot is an intermediate app that transforms your Windows 11 PC boot process 
 
 ### Configuration
 HeroBoot uses these options:
-- `HeroImagesPath`: Folder with images
+- `HeroImagesPath`: Folder with images with escaped inverted slash, e.g. C:\\\\Path\\\\To\\\\Images
 - `HeroImagePattern`: Pattern for image search, e.g. *_hero.jpg
-- `LauncherPath`: Path to the launcher with escaped inverted slash (Steam.exe, Playnite.exe, etc.), e.g. C:\\Program Files\\Steam\\steam.exe
+- `LauncherPath`: Path to the launcher with escaped inverted slash (Steam.exe, Playnite.exe, etc.), e.g. C:\\\\Program Files\\\\Steam\\\\steam.exe
 - `OverrideFSE`: Boolean to replace the full screen experience xbox app.
 - `PlayIntroVideo`: Boolean to play boot video
 
