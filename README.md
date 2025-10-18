@@ -5,6 +5,7 @@
 ### ¿Qué es HeroBoot?  
 HeroBoot es una aplicación intermedia que transforma el arranque de tu PC con Windows 11 en una experiencia tipo consola:  
 
+- Ayuda a que tu launcher funcione como la "home app" en la nueva experiencia de pantalla completa (FSE) de Windows, aunque no aparezca como una opción oficial en la configuración de Windows.
 - Reproduce un video de arranque (intro).  
 - Muestra un slideshow con *imágenes hero* de tus juegos.  
 - Abre tu launcher preferido (Steam, Playnite, Heroic, etc.).  
@@ -67,6 +68,7 @@ HeroBoot usa estas opciones:
 
 HeroBoot is an intermediate app that transforms your Windows 11 PC boot process into a console-like experience:
 
+- Helps make your launcher behave like the "home app" in the new Windows Full-Screen Experience (FSE), even though it doesn’t appear as an official option in Windows settings.
 - Plays a custom boot video (intro).
 - Displays a slideshow of your favorite game *hero images*.
 - Launches your preferred game launcher (Steam, Playnite, Heroic, etc.).
